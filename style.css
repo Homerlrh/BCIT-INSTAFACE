@@ -1,0 +1,31 @@
+.main-content{
+    margin:0;
+}
+.app_name{
+    background: #272727;
+}
+.brandname{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    color:#FFFFFF;
+}
+.postpage{
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+
+
+
+.Inputform {
+    background-color: #272727;
+}
+
+.postform{
+    height: 100px;
+    line-height: 100px;
+    width:95%;
+    position: fixed;
+}
