@@ -1,31 +1,177 @@
-.main-content{
-    margin:0;
-}
-.app_name{
-    background: #272727;
-}
-.brandname{
-    width: 95%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: auto;
-    color:#FFFFFF;
-}
-.postpage{
-    margin-top:10px;
-    margin-bottom: 10px;
+html {
+  scroll-behavior: smooth;
 }
 
+.main-content {
+  margin: 0;
+  background-color: #778899;
+}
+.app_name {
+  background: #272727;
+  border-bottom: 1px solid #ffffff;
+}
+.brandname {
+  width: 1130px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  color: #ffffff;
+  font-family: "Righteous", cursive;
+  cursor: pointer;
+  cursor: hand;
+}
 
+/* basic css for post page making */
+.postpage {
+  margin-top: 20px;
+  margin-bottom: 120px;
+}
+.control-div {
+  margin: auto;
+  width: 1200px;
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: auto auto;
+}
+.singlepost {
+  width: 500px;
+  background-color: #ffffff;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightslategrey;
+}
 
+/* name bar */
+.nameheader {
+  width: 100%;
+}
+.username {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  font-family: "Staatliches", cursive;
+  cursor: pointer;
+  cursor: hand;
+}
+.socialmedia_icon {
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  cursor: hand;
+}
+.material-icons:nth-child(2) {
+  margin: 20px;
+}
+
+/* post image happen here */
+.img_space {
+  margin: 0;
+  border-bottom: 1px solid lightslategrey;
+}
+.IMGpost {
+  width: 500px;
+  height: 350px;
+}
+.caption {
+  width: 100%;
+}
+.IMGcaption {
+  width: 90%;
+  margin: auto;
+  font-size: 20px;
+  padding: 15px 0px;
+  font-family: "Copse", serif;
+}
+
+/* follwers comments */
+.usercomment {
+  display: flex;
+  align-items: center;
+}
+.usercomment:first-child {
+  border-bottom: 1px solid lightslategrey;
+}
+.comment_review {
+  width: 100%;
+  border-bottom: 1px solid lightslategrey;
+}
+.comments {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.comment_text {
+  font-family: "Copse", serif;
+  margin-left: 10px;
+}
+
+/* submission area for user to input comment */
+.submission_area {
+  padding-left: 25px;
+  padding-right: 25px;
+  min-height: 56px;
+  display: flex;
+}
+.comment-form {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.comment-textarea {
+  border: none;
+  resize: none;
+  width: 100%;
+  height: 20px;
+  padding: 0;
+  outline: none;
+  overflow: auto;
+}
+.postcomments {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  cursor: hand;
+}
+
+/* this is the footer area where the posting mechanism happens */
 .Inputform {
-    background-color: #272727;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #272727;
+  color: white;
+  position: fixed;
+  border-top: 1px solid #ffffff;
 }
-
-.postform{
-    height: 100px;
-    line-height: 100px;
-    width:95%;
-    position: fixed;
+.postform {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.new-post input:nth-child(2) {
+  margin: 15px;
+}
+.new-post input,
+.postbutton button {
+  align-items: center;
+  width: 340px;
+  padding: 5px;
+  box-sizing: border-box;
+  outline: none;
+}
+.postbutton {
+  border-style: none;
+  background-color: transparent;
+  color: #ffffff;
+  outline: none;
+  margin-left: 20px;
+  cursor: pointer;
+  cursor: hand;
+  font-size: 20px;
 }

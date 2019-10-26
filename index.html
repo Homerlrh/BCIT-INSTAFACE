@@ -1,63 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>InstaSam</title>
-    <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-</head>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Copse|Niconne|Righteous|Staatliches&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body class="main-content">
-
+  <body class="main-content">
     <header class="app_name">
-        <div class="brandname">
-            <h1>InstaFace</h1>
-        </div>
+      <div class="brandname">
+        <h1>InstaFace</h1>
+      </div>
     </header>
 
     <main class="postpage">
+      <div class="control-div" id="all-post">
         <article class="singlepost">
+          <header class="nameheader">
             <header class="username">
-                <div class="account_name">
-                    <p>Mr.leerh</p>
-                </div>
-                <div class="socialmedia_logo">
-                    <i class="material-icons">favorite</i>
-                    <i class="material-icons">comment</i>
-                    <i class="material-icons">share</i>
-                </div>
+              <div class="account_name">
+                <p>Mr.leerh</p>
+              </div>
+              <div class="socialmedia_icon">
+                <i class="material-icons">favorite</i>
+                <i class="material-icons">comment</i>
+                <i class="material-icons">share</i>
+              </div>
             </header>
-            <figure class="img_space">
-                <img alt="cat" class="IMGpost" src="">
-                <figcaption class="IMGcaption">This is a 😼</figcaption>
-            </figure>
-            <section>
-                <i class="material-icons">
-                    account_box
-                </i>
-                <p>i also like cats</p>
-                <i class="material-icons">
-                    account_box
-                </i>
-                <p>Yeah, me too</p>
+          </header>
+          <figure class="img_space">
+            <img
+              alt="cat"
+              class="IMGpost"
+              src="https://i.kym-cdn.com/photos/images/newsfeed/001/505/718/136.jpg"
+            />
+            <section class="caption">
+              <figcaption class="IMGcaption">This is a 😼</figcaption>
             </section>
-            <div class="comment_bar">
-                <form id="comment_input" class="comment-form" autocomplete="off">
-                    <input type="text" id="comment" placeholder="message">
-                    <button>Submit</button>
-                </form>
-            </div>
+          </figure>
+          <section class="comment_review">
+            <section class="comments">
+              <div class="usercomment">
+                <i class="material-icons" class="icon">
+                  account_box
+                </i>
+                <p class="comment_text">I also like Cat</p>
+              </div>
+              <div class="usercomment">
+                <i class="material-icons">
+                  account_box
+                </i>
+                <p class="comment_text">Yeah, me too</p>
+              </div>
+            </section>
+          </section>
+          <section class="submission_area">
+            <form class="comment-form" method="POST" autocomplete="off">
+              <textarea
+                placeholder="Add a comment..."
+                class="comment-textarea"
+              ></textarea>
+              <button class="postcomments">post</button>
+            </form>
+          </section>
         </article>
+
+        <article class="singlepost">
+          <header class="nameheader">
+            <header class="username">
+              <div class="account_name">
+                <p>Mr.leerh</p>
+              </div>
+              <div class="socialmedia_icon">
+                <i class="material-icons">favorite</i>
+                <i class="material-icons">comment</i>
+                <i class="material-icons">share</i>
+              </div>
+            </header>
+          </header>
+          <figure class="img_space">
+            <img
+              alt="cat"
+              class="IMGpost"
+              src="https://i.kym-cdn.com/photos/images/newsfeed/001/505/718/136.jpg"
+            />
+            <section class="caption">
+              <figcaption class="IMGcaption">This is a 😼</figcaption>
+            </section>
+          </figure>
+          <section class="comment_review">
+            <section class="comments">
+              <div class="usercomment">
+                <i class="material-icons" class="icon">
+                  account_box
+                </i>
+                <p class="comment_text">I also like Cat</p>
+              </div>
+              <div class="usercomment">
+                <i class="material-icons">
+                  account_box
+                </i>
+                <p class="comment_text">Yeah, me too</p>
+              </div>
+            </section>
+          </section>
+          <section class="submission_area">
+            <form class="comment-form" method="POST" autocomplete="off">
+              <textarea
+                placeholder="Add a comment..."
+                class="comment-textarea"
+              ></textarea>
+              <button class="postcomments">post</button>
+            </form>
+          </section>
+        </article>
+
+        <article class="singlepost">
+          <header class="nameheader">
+            <header class="username">
+              <div class="account_name">
+                <p>Mr.leerh</p>
+              </div>
+              <div class="socialmedia_icon">
+                <i class="material-icons">favorite</i>
+                <i class="material-icons">comment</i>
+                <i class="material-icons">share</i>
+              </div>
+            </header>
+          </header>
+          <figure class="img_space">
+            <img
+              alt="cat"
+              class="IMGpost"
+              src="https://i.kym-cdn.com/photos/images/newsfeed/001/505/718/136.jpg"
+            />
+            <section class="caption">
+              <figcaption class="IMGcaption">This is a 😼</figcaption>
+            </section>
+          </figure>
+          <section class="comment_review">
+            <section class="comments">
+              <div class="usercomment">
+                <i class="material-icons" class="icon">
+                  account_box
+                </i>
+                <p class="comment_text">I also like Cat</p>
+              </div>
+              <div class="usercomment">
+                <i class="material-icons">
+                  account_box
+                </i>
+                <p class="comment_text">Yeah, me too</p>
+              </div>
+            </section>
+          </section>
+          <section class="submission_area">
+            <form class="comment-form" method="POST" autocomplete="off">
+              <textarea
+                placeholder="Add a comment..."
+                class="comment-textarea"
+              ></textarea>
+              <button class="postcomments">post</button>
+            </form>
+          </section>
+        </article>
+
+        <article class="singlepost">
+          <header class="nameheader">
+            <header class="username">
+              <div class="account_name">
+                <p>Mr.leerh</p>
+              </div>
+              <div class="socialmedia_icon">
+                <i class="material-icons">favorite</i>
+                <i class="material-icons">comment</i>
+                <i class="material-icons">share</i>
+              </div>
+            </header>
+          </header>
+          <figure class="img_space">
+            <img
+              alt="cat"
+              class="IMGpost"
+              src="https://i.kym-cdn.com/photos/images/newsfeed/001/505/718/136.jpg"
+            />
+            <section class="caption">
+              <figcaption class="IMGcaption">This is a 😼</figcaption>
+            </section>
+          </figure>
+          <section class="comment_review">
+            <section class="comments">
+              <div class="usercomment">
+                <i class="material-icons" class="icon">
+                  account_box
+                </i>
+                <p class="comment_text">I also like Cat</p>
+              </div>
+              <div class="usercomment">
+                <i class="material-icons">
+                  account_box
+                </i>
+                <p class="comment_text">Yeah, me too</p>
+              </div>
+            </section>
+          </section>
+          <section class="submission_area">
+            <form class="comment-form" method="POST" autocomplete="off">
+              <textarea
+                placeholder="Add a comment..."
+                class="comment-textarea"
+              ></textarea>
+              <button class="postcomments">post</button>
+            </form>
+          </section>
+        </article>
+
+        <article class="singlepost">
+          <header class="nameheader">
+            <header class="username">
+              <div class="account_name">
+                <p>Mr.leerh</p>
+              </div>
+              <div class="socialmedia_icon">
+                <i class="material-icons">favorite</i>
+                <i class="material-icons">comment</i>
+                <i class="material-icons">share</i>
+              </div>
+            </header>
+          </header>
+          <figure class="img_space">
+            <img
+              alt="cat"
+              class="IMGpost"
+              src="https://i.kym-cdn.com/photos/images/newsfeed/001/505/718/136.jpg"
+            />
+            <section class="caption">
+              <figcaption class="IMGcaption">This is a 😼</figcaption>
+            </section>
+          </figure>
+          <section class="comment_review">
+            <section class="comments">
+              <div class="usercomment">
+                <i class="material-icons" class="icon">
+                  account_box
+                </i>
+                <p class="comment_text">I also like Cat</p>
+              </div>
+              <div class="usercomment">
+                <i class="material-icons">
+                  account_box
+                </i>
+                <p class="comment_text">Yeah, me too</p>
+              </div>
+            </section>
+          </section>
+          <section class="submission_area">
+            <form class="comment-form" method="POST" autocomplete="off">
+              <textarea
+                placeholder="Add a comment..."
+                class="comment-textarea"
+              ></textarea>
+              <button class="postcomments">post</button>
+            </form>
+          </section>
+        </article>
+
+        <article class="singlepost">
+          <header class="nameheader">
+            <header class="username">
+              <div class="account_name">
+                <p>Mr.leerh</p>
+              </div>
+              <div class="socialmedia_icon">
+                <i class="material-icons">favorite</i>
+                <i class="material-icons">comment</i>
+                <i class="material-icons">share</i>
+              </div>
+            </header>
+          </header>
+          <figure class="img_space">
+            <img
+              alt="cat"
+              class="IMGpost"
+              src="https://i.kym-cdn.com/photos/images/newsfeed/001/505/718/136.jpg"
+            />
+            <section class="caption">
+              <figcaption class="IMGcaption">This is a 😼</figcaption>
+            </section>
+          </figure>
+          <section class="comment_review">
+            <section class="comments">
+              <div class="usercomment">
+                <i class="material-icons" class="icon">
+                  account_box
+                </i>
+                <p class="comment_text">I also like Cat</p>
+              </div>
+              <div class="usercomment">
+                <i class="material-icons">
+                  account_box
+                </i>
+                <p class="comment_text">Yeah, me too</p>
+              </div>
+            </section>
+          </section>
+          <section class="submission_area">
+            <form class="comment-form" method="POST" autocomplete="off">
+              <textarea
+                placeholder="Add a comment..."
+                class="comment-textarea"
+              ></textarea>
+              <button class="postcomments">post</button>
+            </form>
+          </section>
+        </article>
+
+        <article class="singlepost">
+          <header class="nameheader">
+            <header class="username">
+              <div class="account_name">
+                <p>Mr.leerh</p>
+              </div>
+              <div class="socialmedia_icon">
+                <i class="material-icons">favorite</i>
+                <i class="material-icons">comment</i>
+                <i class="material-icons">share</i>
+              </div>
+            </header>
+          </header>
+          <figure class="img_space">
+            <img
+              alt="cat"
+              class="IMGpost"
+              src="https://i.kym-cdn.com/photos/images/newsfeed/001/505/718/136.jpg"
+            />
+            <section class="caption">
+              <figcaption class="IMGcaption">This is a 😼</figcaption>
+            </section>
+          </figure>
+          <section class="comment_review">
+            <section class="comments">
+              <div class="usercomment">
+                <i class="material-icons" class="icon">
+                  account_box
+                </i>
+                <p class="comment_text">I also like Cat</p>
+              </div>
+              <div class="usercomment">
+                <i class="material-icons">
+                  account_box
+                </i>
+                <p class="comment_text">Yeah, me too</p>
+              </div>
+            </section>
+          </section>
+          <section class="submission_area">
+            <form class="comment-form" method="POST" autocomplete="off">
+              <textarea
+                placeholder="Add a comment..."
+                class="comment-textarea"
+              ></textarea>
+              <button class="postcomments">post</button>
+            </form>
+          </section>
+        </article>
+      </div>
     </main>
 
     <footer class="Inputform">
-        <div class="postform">
-
-        </div>
+      <div class="postform">
+        <form id="new-post" class="new-post" autocomplete="off">
+          <input type="text" id="name" placeholder="    Username" />
+          <input type="text" id="imgURL" placeholder="  Img URL" />
+          <input type="text" id="comment" placeholder=" Comment" />
+          <button class="postbutton">post</button>
+        </form>
+      </div>
     </footer>
-</body>
-
+  </body>
 </html>
