@@ -46,6 +46,7 @@ html {
 /* name bar */
 .nameheader {
   width: 100%;
+  border-bottom: 1px solid lightslategray;
 }
 .username {
   width: 90%;
@@ -75,9 +76,13 @@ html {
 .IMGpost {
   width: 500px;
   height: 350px;
+  object-fit: contain;
+  margin-bottom: -5px;
 }
 .caption {
   width: 100%;
+  margin-top: 0;
+  border-top: 1px solid lightslategray;
 }
 .IMGcaption {
   width: 90%;
@@ -88,7 +93,8 @@ html {
 }
 
 /* follwers comments */
-.usercomment {
+.usercomment,
+.usercomment1 {
   display: flex;
   align-items: center;
 }
@@ -164,6 +170,7 @@ html {
   padding: 5px;
   box-sizing: border-box;
   outline: none;
+  font-size: 15px;
 }
 .postbutton {
   border-style: none;
