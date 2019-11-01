@@ -1,14 +1,18 @@
 const form = document.querySelector("#new-post");
 
-form.addEventListener("submit", event => {
-  event.preventDefault();
-  const name = document.querySelector("#name").value;
-  const Imgsource = document.querySelector("#imgURL").value;
-  const comment = document.querySelector("#comment").value;
+function creatpost(post) {
+  // event.preventDefault();
+  // const name = document.querySelector("#name").value;
+  // const Imgsource = document.querySelector("#imgURL").value;
+  // const comment = document.querySelector("#comment").value;
+
+  const postContainer = document.querySelector("#all-post");
+  postContainer.classList.add("control-div");
 
   //   create new scope for new post
   const newpost = document.createElement("article");
   newpost.classList.add("singlepost");
+  postContainer.appendChild(newpost);
 
   //  name space bar for user name
   const namebar = document.createElement("header");
@@ -65,13 +69,12 @@ form.addEventListener("submit", event => {
   usercomment.classList.add("usercomment");
   const icon3 = document.createElement("i");
   icon3.classList.add("material-icons");
-  icon3.classList.add("icon");
   icon3.innerHTML = "account_box";
   const comment_text = document.createElement("p");
   comment_text.classList.add("comment_text");
   comment_text.innerHTML = "i love cat";
   const usercomment1 = document.createElement("div");
-  usercomment1.classList.add("usercomment1");
+  usercomment1.classList.add("usercomment");
   const icon4 = document.createElement("i");
   icon4.classList.add("material-icons");
   icon4.innerHTML = "account_box";
@@ -92,8 +95,8 @@ form.addEventListener("submit", event => {
   submission.classList.add("submission_area");
   const inputform = document.createElement("form");
   inputform.classList.add("comment-form");
-  const text = document.createElement("textarea");
-  text.classList.add("comment-textarea");
+  const text = document.createElement("input");
+  text.classList.add("comment-input");
   text.placeholder = "Add a comment...";
   const postcomment = document.createElement("button");
   postcomment.classList.add("postcomments");
@@ -108,6 +111,46 @@ form.addEventListener("submit", event => {
   newpost.appendChild(comment_review);
   newpost.appendChild(submission);
 
-  document.querySelector("#all-post").appendChild(newpost);
+  // document.querySelector("#all-post").appendChild(newpost);
   window.scrollTo(0, document.body.scrollHeight);
+}
+
+const favorite_button = document.querySelector(".fa");
+favorite_button.addEventListener("click", e => {
+  e.preventDefault();
+  favorite_button.classList.toggle("fa:hover");
+});
+
+const readform = document.querySelector(".comment-form");
+
+readform.addEventListener("submit", event => {
+  event.preventDefault();
+  const comment_review = document.createElement("section");
+  comment_review.classList.add("comment_review");
+  const comments = document.createElement("section");
+  comments.classList.add("comments");
+  const usercomment = document.createElement("div");
+  usercomment.classList.add("usercomment");
+  const icon3 = document.createElement("i");
+  icon3.classList.add("material-icons");
+  icon3.innerHTML = "account_box";
+  const comment_text = document.createElement("p");
+  comment_text.classList.add("comment_text");
+  comment_text.innerHTML = "i love cat";
+  const usercomment1 = document.createElement("div");
+  usercomment1.classList.add("usercomment");
+  const icon4 = document.createElement("i");
+  icon4.classList.add("material-icons");
+  icon4.innerHTML = "account_box";
+  const comment_text1 = document.createElement("p");
+  comment_text1.classList.add("comment_text");
+  comment_text1.innerHTML = "i dont know what to say";
+
+  usercomment.appendChild(icon3);
+  usercomment.appendChild(comment_text);
+  usercomment1.appendChild(icon4);
+  usercomment1.appendChild(comment_text1);
+  comments.appendChild(usercomment);
+  comments.appendChild(usercomment1);
+  comment_review.appendChild(comments);
 });

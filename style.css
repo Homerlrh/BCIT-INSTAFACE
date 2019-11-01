@@ -19,7 +19,6 @@ html {
   color: #ffffff;
   font-family: "Righteous", cursive;
   cursor: pointer;
-  cursor: hand;
 }
 
 /* basic css for post page making */
@@ -55,14 +54,14 @@ html {
   justify-content: space-between;
   margin: auto;
   font-family: "Staatliches", cursive;
+}
+.post_username {
   cursor: pointer;
-  cursor: hand;
 }
 .socialmedia_icon {
   align-items: center;
   display: flex;
   cursor: pointer;
-  cursor: hand;
 }
 .material-icons:nth-child(2) {
   margin: 20px;
@@ -78,11 +77,11 @@ html {
   height: 350px;
   object-fit: contain;
   margin-bottom: -5px;
+  border-bottom: 1px solid lightslategrey;
 }
 .caption {
   width: 100%;
   margin-top: 0;
-  border-top: 1px solid lightslategray;
 }
 .IMGcaption {
   width: 90%;
@@ -93,13 +92,12 @@ html {
 }
 
 /* follwers comments */
-.usercomment,
-.usercomment1 {
+.usercomment {
   display: flex;
   align-items: center;
 }
-.usercomment:first-child {
-  border-bottom: 1px solid lightslategrey;
+.usercomment:last-child {
+  border-top: 1px solid lightslategrey;
 }
 .comment_review {
   width: 100%;
@@ -128,20 +126,21 @@ html {
   width: 100%;
   align-items: center;
 }
-.comment-textarea {
-  border: none;
+.comment-input {
   resize: none;
-  width: 100%;
-  height: 20px;
-  padding: 0;
+  flex-grow: 10;
+  padding: 1px;
+  font-size: 15px;
+  border: none;
   outline: none;
-  overflow: auto;
+  text-rendering: auto;
 }
 .postcomments {
   background-color: transparent;
   border: none;
   cursor: pointer;
   cursor: hand;
+  font-size: 15px;
 }
 
 /* this is the footer area where the posting mechanism happens */
@@ -181,4 +180,12 @@ html {
   cursor: pointer;
   cursor: hand;
   font-size: 20px;
+}
+
+.fa:hover {
+  color: red;
+}
+
+.colorred {
+  color: red;
 }
