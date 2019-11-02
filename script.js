@@ -1,4 +1,8 @@
-function creatpost(name, Imgsource, comment) {
+function creatpost(post) {
+  let name = post.username;
+  let comment = post.message;
+  let Imgsource = post.image_url;
+
   const postContainer = document.querySelector("#all-post");
   postContainer.classList.add("control-div");
 
@@ -25,7 +29,7 @@ function creatpost(name, Imgsource, comment) {
   const logobar = document.createElement("div");
   logobar.classList.add("socialmedia_icon");
   const icon = document.createElement("i");
-  icon.classList.add("material-icons");
+  icon.classList.add("material-icons", "fa");
   icon.innerHTML = "favorite";
   const icon1 = document.createElement("i");
   icon1.classList.add("material-icons");
@@ -53,72 +57,57 @@ function creatpost(name, Imgsource, comment) {
   img_caption.appendChild(figurecaption);
   figure.appendChild(img_caption);
 
-  //comment space
-  const comment_review = document.createElement("section");
-  comment_review.classList.add("comment_review");
-  const comments = document.createElement("section");
-  comments.classList.add("comments");
-  const usercomment = document.createElement("div");
-  usercomment.classList.add("usercomment");
-  const icon3 = document.createElement("i");
-  icon3.classList.add("material-icons");
-  icon3.innerHTML = "account_box";
-  const comment_text = document.createElement("p");
-  comment_text.classList.add("comment_text");
-  comment_text.innerHTML = "i love cat";
-  const usercomment1 = document.createElement("div");
-  usercomment1.classList.add("usercomment");
-  const icon4 = document.createElement("i");
-  icon4.classList.add("material-icons");
-  icon4.innerHTML = "account_box";
-  const comment_text1 = document.createElement("p");
-  comment_text1.classList.add("comment_text");
-  comment_text1.innerHTML = "i dont know what to say";
-
-  usercomment.appendChild(icon3);
-  usercomment.appendChild(comment_text);
-  usercomment1.appendChild(icon4);
-  usercomment1.appendChild(comment_text1);
-  comments.appendChild(usercomment);
-  comments.appendChild(usercomment1);
-  comment_review.appendChild(comments);
-
   //comment bar
   const submission = document.createElement("section");
   submission.classList.add("submission_area");
   const inputform = document.createElement("form");
   inputform.classList.add("comment-form");
-  const text = document.createElement("input");
-  text.classList.add("comment-input");
-  text.placeholder = "Add a comment...";
-  const postcomment = document.createElement("button");
-  postcomment.classList.add("postcomments");
-  postcomment.innerHTML = "post";
-  inputform.appendChild(text);
-  inputform.appendChild(postcomment);
+  inputform.innerHTML = `<input class="comment-input" placeholder="Add New comment" />
+  <button class="postcomments">post</button>`;
+
+  inputform.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const message = inputform.querySelector(".comment-input").value;
+    let usercomment = createNewComment(message);
+    comments.appendChild(usercomment);
+    comment_review.appendChild(comments);
+    inputform.querySelector(".comment-input").innerHTML = "";
+  });
+
   submission.appendChild(inputform);
 
   //assemble area
   newpost.appendChild(namebar);
   newpost.appendChild(figure);
+
+  var comment_review = document.createElement("section");
+  comment_review.classList.add("comment_review");
+  var comments = document.createElement("section");
+  comments.classList.add("comments");
+  for (const PostComment of post.comments) {
+    let usercomment = createNewComment(PostComment.message);
+    comments.appendChild(usercomment);
+    comment_review.appendChild(comments);
+  }
   newpost.appendChild(comment_review);
   newpost.appendChild(submission);
 
   return postContainer;
 }
 
-const readform = document.querySelectorAll(".comment-form");
-
-readform.forEach(readforms => {
-  readforms.addEventListener("submit", e => {
-    e.preventDefault();
-  });
-});
-
-const name = posts[0].username;
-const mess = posts[0].message;
-const img = posts[0].image_url;
-creatpost(name, img, mess);
+function createNewComment(message) {
+  const usercomment = document.createElement("div");
+  usercomment.classList.add("usercomment");
+  const account_box = document.createElement("i");
+  account_box.classList.add("material-icons");
+  account_box.innerHTML = "account_box";
+  const comment_text = document.createElement("p");
+  comment_text.classList.add("comment_text");
+  comment_text.innerHTML = message;
+  usercomment.appendChild(account_box);
+  usercomment.appendChild(comment_text);
+  return usercomment;
+}
 
 const form = document.querySelector("#new-post");
 form.addEventListener("submit", event => {
@@ -126,6 +115,16 @@ form.addEventListener("submit", event => {
   const name = document.querySelector("#name").value;
   const Imgsource = document.querySelector("#imgURL").value;
   const comment = document.querySelector("#comment").value;
-  creatpost(name, Imgsource, comment);
+  post = {
+    username: name,
+    message: comment,
+    image_url: Imgsource,
+    comments: []
+  };
+  creatpost(post);
   window.scrollTo(0, document.body.scrollHeight);
 });
+
+for (let i = 0; i <= posts.length; i++) {
+  creatpost(posts[i]);
+}

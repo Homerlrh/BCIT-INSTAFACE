@@ -11,7 +11,7 @@ html {
   border-bottom: 1px solid #ffffff;
 }
 .brandname {
-  width: 1130px;
+  width: 50%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,12 +23,13 @@ html {
 
 /* basic css for post page making */
 .postpage {
-  margin: 20px 0 120px 0;
+  width: 50%;
+  margin: 20px auto 100px auto;
 }
 .control-div {
   margin: auto;
   grid-gap: 50px;
-  width: 80%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, 500px);
   justify-content: space-between;
@@ -92,13 +93,14 @@ html {
 .usercomment {
   display: flex;
   align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid lightslategrey;
 }
-.usercomment:last-child {
-  border-top: 1px solid lightslategrey;
+.usercomment:last-of-type {
+  border-bottom: none;
 }
 .comment_review {
   width: 100%;
-  border-bottom: 1px solid lightslategrey;
 }
 .comments {
   width: 90%;
@@ -108,15 +110,15 @@ html {
 }
 .comment_text {
   font-family: "Copse", serif;
-  margin-left: 10px;
+  margin: 0 0 0 10px;
 }
 
 /* submission area for user to input comment */
 .submission_area {
-  padding-left: 25px;
-  padding-right: 25px;
+  padding: 0 25px;
   min-height: 56px;
   display: flex;
+  border-top: 1px solid lightslategrey;
 }
 .comment-form {
   display: flex;
@@ -155,7 +157,7 @@ html {
   justify-content: center;
   height: 70px;
   flex-direction: column;
-  width: 80%;
+  width: 50%;
   margin: auto;
 }
 .new-post input:nth-child(2) {

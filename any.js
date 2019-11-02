@@ -83,13 +83,12 @@ function createPostElement(post) {
 
   const form = document.createElement("form");
   form.classList.add("comment-form");
-  form.innerHTML = `<input id="comment-message" class="comment-form__comment" type="text" name="comment" placeholder="Add a comment...">
-    <button class="comment-form__button">Post</button>`;
+  form.innerHTML = `<input class="comment-input" placeholder="Add New comment" />
+  <button class="postcomments">post</button>`;
 
   form.addEventListener("submit", function(event) {
     event.preventDefault();
     const message = form.querySelector("#comment-message").value;
-
     createNewComment(post.id, message);
   });
 
