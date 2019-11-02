@@ -41,6 +41,12 @@ function creatpost(post) {
   logobar.appendChild(icon);
   logobar.appendChild(icon1);
   logobar.appendChild(icon2);
+  var counter = 0;
+  icon.addEventListener("click", e => {
+    e.preventDefault();
+    icon.classList.toggle("colorred");
+    console.log(`${counter++} liked post`);
+  });
 
   //Img space
   const figure = document.createElement("figure");
@@ -71,7 +77,7 @@ function creatpost(post) {
     let usercomment = createNewComment(message);
     comments.appendChild(usercomment);
     comment_review.appendChild(comments);
-    inputform.querySelector(".comment-input").innerHTML = "";
+    inputform.querySelector(".comment-input").value = "";
   });
 
   submission.appendChild(inputform);
