@@ -1,11 +1,4 @@
-const form = document.querySelector("#new-post");
-
-function creatpost(post) {
-  // event.preventDefault();
-  // const name = document.querySelector("#name").value;
-  // const Imgsource = document.querySelector("#imgURL").value;
-  // const comment = document.querySelector("#comment").value;
-
+function creatpost(name, Imgsource, comment) {
   const postContainer = document.querySelector("#all-post");
   postContainer.classList.add("control-div");
 
@@ -111,46 +104,28 @@ function creatpost(post) {
   newpost.appendChild(comment_review);
   newpost.appendChild(submission);
 
-  // document.querySelector("#all-post").appendChild(newpost);
-  window.scrollTo(0, document.body.scrollHeight);
+  return postContainer;
 }
 
-const favorite_button = document.querySelector(".fa");
-favorite_button.addEventListener("click", e => {
-  e.preventDefault();
-  favorite_button.classList.toggle("fa:hover");
+const readform = document.querySelectorAll(".comment-form");
+
+readform.forEach(readforms => {
+  readforms.addEventListener("submit", e => {
+    e.preventDefault();
+  });
 });
 
-const readform = document.querySelector(".comment-form");
+const name = posts[0].username;
+const mess = posts[0].message;
+const img = posts[0].image_url;
+creatpost(name, img, mess);
 
-readform.addEventListener("submit", event => {
+const form = document.querySelector("#new-post");
+form.addEventListener("submit", event => {
   event.preventDefault();
-  const comment_review = document.createElement("section");
-  comment_review.classList.add("comment_review");
-  const comments = document.createElement("section");
-  comments.classList.add("comments");
-  const usercomment = document.createElement("div");
-  usercomment.classList.add("usercomment");
-  const icon3 = document.createElement("i");
-  icon3.classList.add("material-icons");
-  icon3.innerHTML = "account_box";
-  const comment_text = document.createElement("p");
-  comment_text.classList.add("comment_text");
-  comment_text.innerHTML = "i love cat";
-  const usercomment1 = document.createElement("div");
-  usercomment1.classList.add("usercomment");
-  const icon4 = document.createElement("i");
-  icon4.classList.add("material-icons");
-  icon4.innerHTML = "account_box";
-  const comment_text1 = document.createElement("p");
-  comment_text1.classList.add("comment_text");
-  comment_text1.innerHTML = "i dont know what to say";
-
-  usercomment.appendChild(icon3);
-  usercomment.appendChild(comment_text);
-  usercomment1.appendChild(icon4);
-  usercomment1.appendChild(comment_text1);
-  comments.appendChild(usercomment);
-  comments.appendChild(usercomment1);
-  comment_review.appendChild(comments);
+  const name = document.querySelector("#name").value;
+  const Imgsource = document.querySelector("#imgURL").value;
+  const comment = document.querySelector("#comment").value;
+  creatpost(name, Imgsource, comment);
+  window.scrollTo(0, document.body.scrollHeight);
 });
