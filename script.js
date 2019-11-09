@@ -1,13 +1,3 @@
-fetch("https://instasam-one.herokuapp.com/api/insta_posts")
-  .then(res => res.json())
-  .then(post => {
-    posts = post.reverse();
-    posts.forEach(x => {
-      creatpost(x);
-    });
-  })
-  .catch(err => console.log(err));
-
 function creatpost(post) {
   let name = post.username;
   let comment = post.message;
@@ -128,8 +118,41 @@ function createNewComment(message) {
   return usercomment;
 }
 
-const form = document.querySelector("#new-post");
-form.addEventListener("submit", event => {
+createNewPost = newPost => {
+  fetch("https://instasam-one.herokuapp.com/api/insta_posts", {
+    method: "post",
+    body: JSON.stringify({ post: newPost }),
+    headers: { "Content-Type": "application/json" }
+  })
+    .then(e => (e.ok ? e.json() : new Promise((t, n) => e.json().then(n))))
+    .then(e => (console.log(e), fetchAllPosts()))
+    .then(() => {
+      console.log("ok");
+    })
+    .catch(e => {
+      console.log("error", e);
+    });
+};
+
+function loadPosts(post) {
+  posts = post.reverse();
+  posts.forEach(x => {
+    creatpost(x);
+  });
+}
+
+function fetchAllPosts() {
+  fetch("https://instasam-one.herokuapp.com/api/insta_posts")
+    .then(res => res.json())
+    .then(post => {
+      loadPosts(post);
+    })
+    .catch(e => {
+      console.log(e);
+    });
+}
+
+document.querySelector("#new-post").addEventListener("submit", event => {
   event.preventDefault();
   const name = document.querySelector("#name").value;
   const Imgsource = document.querySelector("#imgURL").value;
@@ -140,12 +163,6 @@ form.addEventListener("submit", event => {
     image_url: Imgsource,
     comments: []
   };
-  creatpost(post);
-  window.scrollTo(0, document.body.scrollHeight);
-});
-
-const url = "https://instasam-one.herokuapp.com/api";
-
-// const getJSon = (source, method) => {
-
-// };
+  createNewPost(post);
+}),
+  fetchAllPosts();
