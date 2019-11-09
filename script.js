@@ -2,18 +2,11 @@ function creatpost(post) {
   let name = post.username;
   let comment = post.message;
   let Imgsource = post.image_url;
-
-  const postContainer = document.querySelector("#all-post");
-  postContainer.classList.add("control-div");
-
   //   create new scope for new post
   const newpost = document.createElement("article");
   newpost.classList.add("singlepost");
-
   const newdiv = document.createElement("div");
   newdiv.appendChild(newpost);
-  postContainer.appendChild(newdiv);
-
   //  name space bar for user name
   const namebar = document.createElement("header");
   namebar.classList.add("nameheader");
@@ -27,7 +20,6 @@ function creatpost(post) {
   namebar.appendChild(username_bar);
   username_bar.appendChild(account);
   account.appendChild(username);
-
   // materical icon space
   const logobar = document.createElement("div");
   logobar.classList.add("socialmedia_icon");
@@ -50,7 +42,6 @@ function creatpost(post) {
     icon.classList.toggle("colorred");
     console.log(`${counter++} liked post`);
   });
-
   //Img space
   const figure = document.createElement("figure");
   figure.classList.add("img_space");
@@ -65,7 +56,6 @@ function creatpost(post) {
   figurecaption.innerHTML = comment;
   img_caption.appendChild(figurecaption);
   figure.appendChild(img_caption);
-
   //comment bar
   const submission = document.createElement("section");
   submission.classList.add("submission_area");
@@ -73,7 +63,6 @@ function creatpost(post) {
   inputform.classList.add("comment-form");
   inputform.innerHTML = `<input class="comment-input" placeholder="Add New comment" />
   <button class="postcomments">post</button>`;
-
   inputform.addEventListener("submit", function(event) {
     event.preventDefault();
     const message = inputform.querySelector(".comment-input").value;
@@ -82,13 +71,10 @@ function creatpost(post) {
     comment_review.appendChild(comments);
     inputform.querySelector(".comment-input").value = "";
   });
-
   submission.appendChild(inputform);
-
   //assemble area
   newpost.appendChild(namebar);
   newpost.appendChild(figure);
-
   var comment_review = document.createElement("section");
   comment_review.classList.add("comment_review");
   var comments = document.createElement("section");
@@ -100,8 +86,7 @@ function creatpost(post) {
   }
   newpost.appendChild(comment_review);
   newpost.appendChild(submission);
-
-  return postContainer;
+  return newdiv;
 }
 
 function createNewComment(message) {
@@ -124,8 +109,7 @@ createNewPost = newPost => {
     body: JSON.stringify({ post: newPost }),
     headers: { "Content-Type": "application/json" }
   })
-    .then(e => (e.ok ? e.json() : new Promise((t, n) => e.json().then(n))))
-    .then(e => (console.log(e), fetchAllPosts()))
+    .then(e => (e.ok ? e.json() : fetchAllPosts()))
     .then(() => {
       console.log("ok");
     })
@@ -135,9 +119,13 @@ createNewPost = newPost => {
 };
 
 function loadPosts(post) {
+  const postContainer = document.querySelector("#all-post");
+  postContainer.classList.add("control-div");
+  postContainer.innerHTML = "";
   posts = post.reverse();
   posts.forEach(x => {
-    creatpost(x);
+    let e = creatpost(x);
+    postContainer.appendChild(e);
   });
 }
 
