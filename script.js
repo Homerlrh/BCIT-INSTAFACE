@@ -1,3 +1,13 @@
+fetch("https://instasam-one.herokuapp.com/api/insta_posts")
+  .then(res => res.json())
+  .then(post => {
+    posts = post.reverse();
+    posts.forEach(x => {
+      creatpost(x);
+    });
+  })
+  .catch(err => console.log(err));
+
 function creatpost(post) {
   let name = post.username;
   let comment = post.message;
@@ -9,7 +19,10 @@ function creatpost(post) {
   //   create new scope for new post
   const newpost = document.createElement("article");
   newpost.classList.add("singlepost");
-  postContainer.appendChild(newpost);
+
+  const newdiv = document.createElement("div");
+  newdiv.appendChild(newpost);
+  postContainer.appendChild(newdiv);
 
   //  name space bar for user name
   const namebar = document.createElement("header");
@@ -131,6 +144,8 @@ form.addEventListener("submit", event => {
   window.scrollTo(0, document.body.scrollHeight);
 });
 
-for (let i = 0; i <= posts.length; i++) {
-  creatpost(posts[i]);
-}
+const url = "https://instasam-one.herokuapp.com/api";
+
+// const getJSon = (source, method) => {
+
+// };
