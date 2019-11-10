@@ -56,22 +56,6 @@ function creatpost(post) {
   figurecaption.innerHTML = comment;
   img_caption.appendChild(figurecaption);
   figure.appendChild(img_caption);
-  //comment bar
-  const submission = document.createElement("section");
-  submission.classList.add("submission_area");
-  const inputform = document.createElement("form");
-  inputform.classList.add("comment-form");
-  inputform.innerHTML = `<input class="comment-input" placeholder="Add New comment" />
-  <button class="postcomments">post</button>`;
-  inputform.addEventListener("submit", function(event) {
-    event.preventDefault();
-    const message = inputform.querySelector(".comment-input").value;
-    let usercomment = createNewComment(message);
-    comments.appendChild(usercomment);
-    comment_review.appendChild(comments);
-    inputform.querySelector(".comment-input").value = "";
-  });
-  submission.appendChild(inputform);
   //assemble area
   newpost.appendChild(namebar);
   newpost.appendChild(figure);
@@ -84,6 +68,19 @@ function creatpost(post) {
     comments.appendChild(usercomment);
     comment_review.appendChild(comments);
   }
+  //comment bar
+  const submission = document.createElement("section");
+  submission.classList.add("submission_area");
+  const inputform = document.createElement("form");
+  inputform.classList.add("comment-form");
+  inputform.innerHTML =
+    '<input id="comment-message" class="comment-input" type="text" name="comment" placeholder="Add a comment...">\n    <button class="postcomments">Post</button>';
+  inputform.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const message = inputform.querySelector(".comment-input").value;
+    createComment(post.id, message);
+  });
+  submission.appendChild(inputform);
   newpost.appendChild(comment_review);
   newpost.appendChild(submission);
   return newdiv;
@@ -103,13 +100,34 @@ function createNewComment(message) {
   return usercomment;
 }
 
-createNewPost = newPost => {
+createComment = (e, t) => {
+  console.log({ message: t, postId: e });
+  fetch(`https://instasam-one.herokuapp.com/api/insta_posts/${e}/comments`, {
+    method: "post",
+    body: JSON.stringify({ message: t, postId: e }),
+    headers: { "Content-Type": "application/json" }
+  })
+    .then(e => (e.ok ? fetchAllPosts() : console.log("error")))
+    .then(() => {
+      console.log("ok");
+    })
+    .catch(e => {
+      console.log(e);
+    });
+};
+createNewPost = (name, comment, Imgsource) => {
+  const newPost = {
+    username: name,
+    message: comment,
+    image_url: Imgsource,
+    comments: []
+  };
   fetch("https://instasam-one.herokuapp.com/api/insta_posts", {
     method: "post",
     body: JSON.stringify({ post: newPost }),
     headers: { "Content-Type": "application/json" }
   })
-    .then(e => (e.ok ? e.json() : fetchAllPosts()))
+    .then(e => (e.ok ? fetchAllPosts() : console.log("error")))
     .then(() => {
       console.log("ok");
     })
@@ -142,15 +160,10 @@ function fetchAllPosts() {
 
 document.querySelector("#new-post").addEventListener("submit", event => {
   event.preventDefault();
-  const name = document.querySelector("#name").value;
-  const Imgsource = document.querySelector("#imgURL").value;
-  const comment = document.querySelector("#comment").value;
-  post = {
-    username: name,
-    message: comment,
-    image_url: Imgsource,
-    comments: []
-  };
-  createNewPost(post);
+  createNewPost(
+    document.querySelector("#name").value,
+    document.querySelector("#imgURL").value,
+    document.querySelector("#comment").value
+  );
 }),
   fetchAllPosts();

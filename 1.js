@@ -91,7 +91,7 @@ function createNewComment(e, t) {
     body: JSON.stringify({ message: t, postId: e }),
     headers: { "Content-Type": "application/json" }
   })
-    .then(fetchAllPosts)
+    .then(fetchAllPosts())
     .then(() => {
       console.log("ok");
     })
@@ -125,7 +125,7 @@ function fetchAllPosts() {
       console.log(e);
     });
 }
-document.querySelector("#post-form").addEventListener("submit", function(e) {
+document.querySelector("#new-post").addEventListener("submit", function(e) {
   e.preventDefault(),
     createNewPost(
       document.querySelector("#post-form-username").value,
