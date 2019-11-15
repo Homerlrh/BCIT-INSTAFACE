@@ -107,12 +107,12 @@ createComment = (e, t) => {
     body: JSON.stringify({ message: t, postId: e }),
     headers: { "Content-Type": "application/json" }
   })
-    .then(e => (e.ok ? fetchAllPosts() : console.log("error")))
+    .then(status => (status.ok ? fetchAllPosts() : console.log("error")))
     .then(() => {
       console.log("ok");
     })
-    .catch(e => {
-      console.log(e);
+    .catch(err => {
+      console.log(err);
     });
 };
 createNewPost = (name, comment, Imgsource) => {
@@ -127,12 +127,12 @@ createNewPost = (name, comment, Imgsource) => {
     body: JSON.stringify({ post: newPost }),
     headers: { "Content-Type": "application/json" }
   })
-    .then(e => (e.ok ? fetchAllPosts() : console.log("error")))
+    .then(status => (status.ok ? fetchAllPosts() : console.log("error")))
     .then(() => {
       console.log("ok");
     })
-    .catch(e => {
-      console.log("error", e);
+    .catch(err => {
+      console.log("error", err);
     });
 };
 
@@ -153,8 +153,8 @@ function fetchAllPosts() {
     .then(post => {
       loadPosts(post);
     })
-    .catch(e => {
-      console.log(e);
+    .catch(err => {
+      console.log(err);
     });
 }
 
@@ -162,8 +162,8 @@ document.querySelector("#new-post").addEventListener("submit", event => {
   event.preventDefault();
   createNewPost(
     document.querySelector("#name").value,
-    document.querySelector("#imgURL").value,
-    document.querySelector("#comment").value
+    document.querySelector("#comment").value,
+    document.querySelector("#imgURL").value
   );
 }),
   fetchAllPosts();
