@@ -36,11 +36,10 @@ function creatpost(post) {
   logobar.appendChild(icon);
   logobar.appendChild(icon1);
   logobar.appendChild(icon2);
-  var counter = 0;
   icon.addEventListener("click", e => {
     e.preventDefault();
     icon.classList.toggle("colorred");
-    console.log(`${counter++} liked post`);
+    likedPost(post.id);
   });
   //Img space
   const figure = document.createElement("figure");
@@ -84,6 +83,10 @@ function creatpost(post) {
   newpost.appendChild(comment_review);
   newpost.appendChild(submission);
   return newdiv;
+}
+
+function likedPost(e) {
+  console.log(`likePost ${e}`);
 }
 
 function createNewComment(message) {
