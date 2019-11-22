@@ -2,8 +2,11 @@ html {
   scroll-behavior: smooth;
 }
 
-.main-content {
+body {
   margin: 0;
+}
+
+.main-content {
   background-color: #778899;
 }
 .app_name {
@@ -24,11 +27,9 @@ html {
 /* basic css for post page making */
 .postpage {
   width: 70%;
-  margin: 20px auto 100px auto;
+  margin: 0 auto;
 }
 .control-div {
-  margin: auto;
-  grid-gap: 50px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 400px);
   justify-content: space-between;
@@ -36,7 +37,7 @@ html {
 .singlepost {
   width: 400px;
   background-color: #ffffff;
-  margin: 0 auto;
+  margin: 20px auto;
   display: flex;
   flex-direction: column;
   border: 1px solid lightslategrey;
