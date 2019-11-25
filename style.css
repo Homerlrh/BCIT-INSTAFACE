@@ -28,6 +28,7 @@ body {
 .postpage {
   width: 70%;
   margin: 0 auto;
+  margin-bottom: 120px;
 }
 .control-div {
   display: grid;
