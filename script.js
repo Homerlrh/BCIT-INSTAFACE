@@ -170,3 +170,13 @@ document.querySelector("#new-post").addEventListener("submit", event => {
   );
 }),
   fetchAllPosts();
+
+document.querySelector(".show").addEventListener("click", e => {
+  e.preventDefault();
+  let x = document.querySelector(".Inputform");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+});
