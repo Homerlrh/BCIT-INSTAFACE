@@ -73,7 +73,7 @@ function creatpost(post) {
   const inputform = document.createElement("form");
   inputform.classList.add("comment-form");
   inputform.innerHTML =
-    '<input id="comment-message" class="comment-input" type="text" name="comment" placeholder="Add a comment...">\n    <button class="postcomments">Post</button>';
+    '<input id="comment-message" class="comment-input" type="text" name="comment" placeholder="Add a comment..." required>\n    <button class="postcomments">Post</button>';
   inputform.addEventListener("submit", function(event) {
     event.preventDefault();
     const message = inputform.querySelector(".comment-input").value;

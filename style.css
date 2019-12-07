@@ -70,6 +70,7 @@ body {
 }
 .post_username {
   cursor: pointer;
+  font-size: 1.5vw;
 }
 .socialmedia_icon {
   align-items: center;
@@ -97,7 +98,7 @@ body {
   overflow: auto;
   width: 90%;
   margin: auto;
-  font-size: 20px;
+  font-size: 1.4vw;
   padding: 15px 0px;
   font-family: "Copse", serif;
 }
@@ -124,13 +125,13 @@ body {
 }
 .comment_text {
   font-family: "Copse", serif;
+  font-size: 1.3vw;
   margin: 0 0 0 10px;
 }
 
 /* submission area for user to input comment */
 .submission_area {
   padding: 0 25px;
-  min-height: 56px;
   display: flex;
   overflow: auto;
   border-top: 1px solid lightslategrey;
@@ -138,13 +139,14 @@ body {
 .comment-form {
   display: flex;
   width: 100%;
+  height: 100%;
   align-items: center;
 }
 .comment-input {
   resize: none;
   flex-grow: 10;
-  padding: 1px;
-  font-size: 15px;
+  padding: 15px;
+  font-size: 1.5vw;
   border: none;
   outline: none;
   text-rendering: auto;
@@ -154,7 +156,7 @@ body {
   border: none;
   cursor: pointer;
   outline: none;
-  font-size: 15px;
+  font-size: 1.5vw;
 }
 
 /* this is the footer area where the posting mechanism happens */
@@ -198,7 +200,7 @@ body {
   outline: none;
   cursor: pointer;
   cursor: hand;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 .fa:hover {
